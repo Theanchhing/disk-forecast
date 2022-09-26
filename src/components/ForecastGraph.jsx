@@ -18,7 +18,6 @@ const ForecastGraph = ({ eachGraphInfo }) => {
 
   const handleClick = (mn) => {
     setMonth(mn);
-    console.log("Clicked...");
   };
 
   useEffect(() => {
@@ -72,19 +71,19 @@ const ForecastGraph = ({ eachGraphInfo }) => {
   // const x = true;
   const series = [
     {
+      name: "Higher Posibility",
+      // type: 'area',
+      data: dataUpper,
+    },
+    {
       name: "Disk Available",
       // type: 'line',
       data: data,
     },
     {
-      name: "Disk Available",
+      name: "Lower Posibility",
       // type: 'line',
       data: dataLower,
-    },
-    {
-      name: "Disk Available",
-      // type: 'area',
-      data: dataUpper,
     },
   ];
   const options = {
@@ -150,31 +149,28 @@ const ForecastGraph = ({ eachGraphInfo }) => {
     },
   };
 
-  // const a = rate.toFixed(2)
-  // const [graphData, setGraphData] = useState(jsonGraph)
-
   return (
     <div id="chart">
-      <div className="flex flex-row justify-between items-center">
-        <h2 className="text-[18px] font-medium my-6">
+      <div className="md:flex justify-between items-center">
+        <h2 className="text-[16px] md:text-[18px] sm:w-full md:w-2/3 font-medium mt-3 md:my-6">
           Disk prediction in {month} months
         </h2>
-        <div className="inline-flex">
+        <div className="bg-green-200 sm:w-full my-3 md:w-4/6 lg:w-4/8 xl:w-3/6 2xl:w-2/6">
           <button
             onClick={() => handleClick(3)}
-            className="bg-gray-300 hover:bg-gray-400 text-gray-800 font-medium py-2 w-28 rounded-l"
+            className="text-[12px] md:text-[12px] lg:text-[16px] bg-gray-300 hover:bg-gray-400 text-gray-800 md:font-medium py-2 w-1/3 md:w-1/3 rounded-l"
           >
             3 months
           </button>
           <button
             onClick={() => handleClick(6)}
-            className="bg-gray-300 hover:bg-gray-400 text-gray-800 font-medium py-2 w-28 px-4"
+            className="text-[12px] md:text-[12px] lg:text-[16px] bg-gray-300 hover:bg-gray-400 text-gray-800 md:font-medium py-2 w-1/3 md:w-1/3 px-4"
           >
             6 months
           </button>
           <button
             onClick={() => handleClick(12)}
-            className="bg-gray-300 hover:bg-gray-400 text-gray-800 font-medium py-2 px-4 w-28 rounded-r"
+            className="text-[12px] md:text-[12px] lg:text-[16px] bg-gray-300 hover:bg-gray-400 text-gray-800 md:font-medium py-2 w-1/3 md:w-1/3 rounded-r"
           >
             1 year
           </button>

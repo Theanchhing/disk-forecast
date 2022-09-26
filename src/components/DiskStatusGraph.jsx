@@ -51,14 +51,12 @@ const DiskStatusGraph = ({ eachGraphInfo }) => {
   // const [graphData, setGraphData] = useState(jsonGraph)
 
   return (
-    <div className="">
-      <div className=" my-3">
-        <h2 className="text-[18px] font-medium text-center">
+    <div className="flex justify-center">
+      <div className="my-6 md:my-3">
+        <h2 className="text-[16px] md:text-[18px] font-medium text-center">
           Current disk status
         </h2>
         <p className="text-center ">{eachGraphInfo.today}</p>
-      </div>
-      <div className="">
         <ReactApexChart
           options={options}
           series={series}

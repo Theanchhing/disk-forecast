@@ -58,10 +58,12 @@ function Home() {
       )}
       {!loading && options.length > 0 && (
         <div className="flex justify-center">
-          <div className=" w-10/12">
+          <div className="w-10/12">
             <div className="flex flex-row w-full items-center mx-auto mt-8">
-              <h1 className="text-2xl font-medium">Select your instance </h1>
-              <div className="w-80 h-10x ml-2">
+              <h1 className="font-medium text-[20px] md:text-2xl">
+                Select your instance{" "}
+              </h1>
+              <div className="ml-3 sm:w-full md:w-1/3 ">
                 <Select
                   options={options}
                   defaultValue={options[0]}
@@ -69,11 +71,11 @@ function Home() {
                 />
               </div>
             </div>
-            <div className="grid grid-cols-5">
-              <div className="col-span-4">
+            <div className="grid sm:grid-col-1 md:grid-cols-5">
+              <div className="md:col-span-4">
                 <RenderForcast />
               </div>
-              <div className="col-span-1">
+              <div className="md:col-span-1">
                 <DiskStatusGraph eachGraphInfo={instance[0]} />
               </div>
               {/* <Test /> */}
