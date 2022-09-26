@@ -51,7 +51,7 @@ const DiskStatusGraph = ({eachGraphInfo}) => {
     
     return (
       <div className="ml-3">
-        <h2 className="text-[18px] font-bold my-6">
+        <h2 className="text-[18px] font-medium my-6">
             Current disk status
         </h2>
         <p>{eachGraphInfo.today}</p>

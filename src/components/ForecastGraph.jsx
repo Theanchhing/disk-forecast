@@ -156,7 +156,7 @@ const ForecastGraph = ({ eachGraphInfo }) => {
     return (
         <div id="chart">
           <div className="flex flex-row justify-between items-center">
-            <h2 className="text-[18px] font-bold my-6">
+            <h2 className="text-[18px] font-medium my-6">
               Disk prediction in {month} months
             </h2>
             <div className="inline-flex">
