@@ -59,7 +59,7 @@ function Home() {
       {!loading && options.length > 0 && (
         <div className="flex justify-center">
           <div className=" w-10/12">
-            <div className="flex flex-row w-full items-center mx-auto mt-6">
+            <div className="flex flex-row w-full items-center mx-auto mt-8">
               <h1 className="text-2xl font-medium">Select your instance </h1>
               <div className="w-80 h-10x ml-2">
                 <Select
