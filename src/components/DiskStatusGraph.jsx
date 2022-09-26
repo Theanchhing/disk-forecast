@@ -4,7 +4,7 @@ import ReactApexChart from "react-apexcharts";
 // import { eachGraphInfo } from "./graphInfos";
 
 const DiskStatusGraph = ({ eachGraphInfo }) => {
-  console.log("from dist status", eachGraphInfo);
+  // console.log("from dist status", eachGraphInfo);
   const freeSpace = eachGraphInfo.freeSpace;
   const diskUsed = 100 - freeSpace;
 
@@ -31,21 +31,21 @@ const DiskStatusGraph = ({ eachGraphInfo }) => {
     legend: {
       position: "bottom",
     },
-    plotOptions: {
-      pie: {
-        donut: {
-          labels: {
-            show: false,
-            total: {
-              show: true,
-              label: "Disk Status ",
-              fontSize: "14px",
-              formatter: () => eachGraphInfo[0].today,
-            },
-          },
-        },
-      },
-    },
+    // plotOptions: {
+    //   pie: {
+    //     donut: {
+    //       labels: {
+    //         show: false,
+    //         total: {
+    //           show: true,
+    //           label: "Disk Status ",
+    //           fontSize: "14px",
+    //           formatter: () => 100,
+    //         },
+    //       },
+    //     },
+    //   },
+    // },
   };
 
   // const [graphData, setGraphData] = useState(jsonGraph)
