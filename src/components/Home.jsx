@@ -5,11 +5,7 @@ import Select from "react-select";
 import { api } from "../service/api";
 import { RingLoader } from "react-spinners";
 
-let options = [
-  //   { value: listOfForecast[0], label: "Instance 1" },
-  //   { value: listOfForecast[1], label: "Instance 2" },
-  //   { value: "vanilla", label: "Vanilla" },
-];
+let options = [];
 
 function Home() {
   const [instance, setInstance] = useState([]);
