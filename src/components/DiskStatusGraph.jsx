@@ -1,10 +1,7 @@
 import React from "react";
 import ReactApexChart from "react-apexcharts";
 
-// import { eachGraphInfo } from "./graphInfos";
-
 const DiskStatusGraph = ({ eachGraphInfo }) => {
-  // console.log("from dist status", eachGraphInfo);
   const freeSpace = eachGraphInfo.freeSpace;
   const diskUsed = 100 - freeSpace;
 
@@ -47,8 +44,6 @@ const DiskStatusGraph = ({ eachGraphInfo }) => {
     //   },
     // },
   };
-
-  // const [graphData, setGraphData] = useState(jsonGraph)
 
   return (
     <div className="flex justify-center">

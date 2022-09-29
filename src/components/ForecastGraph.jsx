@@ -21,58 +21,35 @@ const ForecastGraph = ({ eachGraphInfo }) => {
   };
 
   useEffect(() => {
+    const setPredictionRange = (ind) => {
+      setData(eachGraphInfo[ind].yhat);
+      setDataLower(eachGraphInfo[ind].lower);
+      setDataUpper(eachGraphInfo[ind].upper);
+      setDuration(eachGraphInfo[ind].duration);
+      setForecastPoint(eachGraphInfo[ind].forecastDataPoint);
+      setTicker(eachGraphInfo[ind].tickAmount);
+      setRate(eachGraphInfo[ind].fluctuation);
+    };
+
     switch (month) {
       case 3:
-        setData(eachGraphInfo[0].yhat);
-        setDataLower(eachGraphInfo[0].lower);
-        setDataUpper(eachGraphInfo[0].upper);
-        setDuration(eachGraphInfo[0].duration);
-        setForecastPoint(eachGraphInfo[0].forecastDataPoint);
-        setTicker(eachGraphInfo[0].tickAmount);
-        setRate(eachGraphInfo[0].fluctuation);
+        setPredictionRange(0);
         break;
       case 6:
-        setData(eachGraphInfo[1].yhat);
-        setDataLower(eachGraphInfo[1].lower);
-        setDataUpper(eachGraphInfo[1].upper);
-        setDuration(eachGraphInfo[1].duration);
-        setForecastPoint(eachGraphInfo[1].forecastDataPoint);
-        setTicker(eachGraphInfo[1].tickAmount);
-        setRate(eachGraphInfo[1].fluctuation);
+        setPredictionRange(1);
         break;
       case 12:
-        setData(eachGraphInfo[2].yhat);
-        setDataLower(eachGraphInfo[2].lower);
-        setDataUpper(eachGraphInfo[2].upper);
-        setDuration(eachGraphInfo[2].duration);
-        setForecastPoint(eachGraphInfo[2].forecastDataPoint);
-        setTicker(eachGraphInfo[2].tickAmount);
-        setRate(eachGraphInfo[2].fluctuation);
+        setPredictionRange(2);
         break;
       default:
-        setData(eachGraphInfo[0].yhat);
-        setDataLower(eachGraphInfo[0].lower);
-        setDataUpper(eachGraphInfo[0].upper);
-        setDuration(eachGraphInfo[0].duration);
-        setForecastPoint(eachGraphInfo[0].forecastDataPoint);
-        setTicker(eachGraphInfo[0].tickAmount);
-        setRate(eachGraphInfo[0].fluctuation);
+        setPredictionRange(0);
     }
-  }, [month]);
+  }, [month, eachGraphInfo]);
 
-  // console.log("data", data)
-  // console.log("lower", dataLower)
-  // console.log("upper", dataUpper)
-  // console.log("duration", duration)
-  // console.log("forecastDataPoint", forecastPoint)
-  // console.log("ticker", ticker)
-  // console.log("fluctuation rate", rate)
-
-  // const x = true;
   const series = [
     {
       name: "Higher Posibility",
-      // type: 'area',
+      // type: 'line',
       data: dataUpper,
     },
     {
@@ -144,8 +121,6 @@ const ForecastGraph = ({ eachGraphInfo }) => {
           return val;
         },
       },
-      // tickAmount: 1
-      // forceNiceScale: true
     },
   };
 

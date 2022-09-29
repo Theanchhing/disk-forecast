@@ -13,14 +13,12 @@ let options = [
 
 function Home() {
   const [instance, setInstance] = useState([]);
-  //   const [allInstance, setAllInstance] = useState([]);
   const [loading, setLoading] = useState(true);
 
   const handleSwitchInstance = (opt) => {
     setInstance(() => {
       return opt.value;
     });
-    // console.log(instance);
   };
 
   useEffect(() => {
@@ -42,7 +40,6 @@ function Home() {
       setLoading(false);
     };
     fetchForecaseInstances();
-    // console.log(loading);
   }, []);
 
   const RenderForcast = () => {
@@ -78,9 +75,7 @@ function Home() {
               <div className="md:col-span-1">
                 <DiskStatusGraph eachGraphInfo={instance[0]} />
               </div>
-              {/* <Test /> */}
             </div>
-            {/* <RingLoader color="#36d7b7" /> */}
           </div>
         </div>
       )}
