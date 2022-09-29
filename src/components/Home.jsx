@@ -22,7 +22,7 @@ function Home() {
   };
 
   useEffect(() => {
-    const fetchForecaseInstances = async () => {
+    const fetchForecastInstances = async () => {
       setLoading(true);
       try {
         const { data: res } = await api.getForecast();
@@ -39,7 +39,7 @@ function Home() {
       }
       setLoading(false);
     };
-    fetchForecaseInstances();
+    fetchForecastInstances();
   }, []);
 
   const RenderForcast = () => {
