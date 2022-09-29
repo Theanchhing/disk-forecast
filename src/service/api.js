@@ -1,6 +1,6 @@
 import axios from "axios";
 const axi = axios.create({
-  baseURL: `http://52.77.44.109:8000/api/v1`,
+  baseURL: `http://13.229.236.49:80/api/v1`,
 });
 
 async function getForecast() {
