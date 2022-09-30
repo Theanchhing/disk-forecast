@@ -28,21 +28,6 @@ const DiskStatusGraph = ({ eachGraphInfo }) => {
     legend: {
       position: "bottom",
     },
-    // plotOptions: {
-    //   pie: {
-    //     donut: {
-    //       labels: {
-    //         show: false,
-    //         total: {
-    //           show: true,
-    //           label: "Disk Status ",
-    //           fontSize: "14px",
-    //           formatter: () => 100,
-    //         },
-    //       },
-    //     },
-    //   },
-    // },
   };
 
   return (

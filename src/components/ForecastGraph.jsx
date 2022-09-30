@@ -1,10 +1,7 @@
 import React, { useEffect, useState } from "react";
 import ReactApexChart from "react-apexcharts";
 
-// import { eachGraphInfo } from "./graphInfos";
-
 const ForecastGraph = ({ eachGraphInfo }) => {
-  // console.log("all graph infos", eachGraphInfo)
   const [data, setData] = useState(eachGraphInfo[0].yhat);
   const [dataLower, setDataLower] = useState(eachGraphInfo[0].lower);
   const [dataUpper, setDataUpper] = useState(eachGraphInfo[0].upper);
@@ -46,6 +43,9 @@ const ForecastGraph = ({ eachGraphInfo }) => {
     }
   }, [month, eachGraphInfo]);
 
+  console.log(ticker);
+  console.log(forecastPoint);
+
   const series = [
     {
       name: "Higher Posibility",
@@ -69,7 +69,7 @@ const ForecastGraph = ({ eachGraphInfo }) => {
       type: "line",
     },
     forecastDataPoints: {
-      count: forecastPoint,
+      count: forecastPoint - 7,
       dashArray: 2,
     },
     stroke: {
@@ -122,6 +122,23 @@ const ForecastGraph = ({ eachGraphInfo }) => {
         },
       },
     },
+    tooltip: {
+      x: {
+        format: "dd MMM yyyy",
+      },
+      fixed: { position: "topRight" },
+    },
+  };
+
+  const TimeFrameBtn = ({ no, _style, label }) => {
+    return (
+      <button
+        onClick={() => handleClick(no)}
+        className={`text-[12px] md:text-[12px] lg:text-[16px] bg-gray-300 hover:bg-gray-400 text-gray-800 md:font-medium py-2 w-1/3 md:w-1/3 ${_style}`}
+      >
+        {label}
+      </button>
+    );
   };
 
   return (
@@ -131,24 +148,9 @@ const ForecastGraph = ({ eachGraphInfo }) => {
           Disk prediction in {month} months
         </h2>
         <div className="bg-green-200 sm:w-full my-3 md:w-4/6 lg:w-4/8 xl:w-3/6 2xl:w-2/6">
-          <button
-            onClick={() => handleClick(3)}
-            className="text-[12px] md:text-[12px] lg:text-[16px] bg-gray-300 hover:bg-gray-400 text-gray-800 md:font-medium py-2 w-1/3 md:w-1/3 rounded-l"
-          >
-            3 months
-          </button>
-          <button
-            onClick={() => handleClick(6)}
-            className="text-[12px] md:text-[12px] lg:text-[16px] bg-gray-300 hover:bg-gray-400 text-gray-800 md:font-medium py-2 w-1/3 md:w-1/3 px-4"
-          >
-            6 months
-          </button>
-          <button
-            onClick={() => handleClick(12)}
-            className="text-[12px] md:text-[12px] lg:text-[16px] bg-gray-300 hover:bg-gray-400 text-gray-800 md:font-medium py-2 w-1/3 md:w-1/3 rounded-r"
-          >
-            1 year
-          </button>
+          <TimeFrameBtn no={3} _style="rounded-l" label="3 months" />
+          <TimeFrameBtn no={6} _style="" label="6 months" />
+          <TimeFrameBtn no={12} _style="rounded-r" label="1 year" />
         </div>
       </div>
       <ReactApexChart
